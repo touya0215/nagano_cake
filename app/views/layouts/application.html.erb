@@ -23,21 +23,23 @@
           <div class="collapse navbar-collapse" id="navbarNavDropdown">
             <ul class="navbar-nav ml-auto">
             <li>
-              <%= link_to public_homes_top_path, class: 'nav-link text_light' do %>
-                <i class="fas fa-home"></i>
-                 Home
+              <%= link_to public_homes_about_path, class: 'nav-link text_light' do %>
+                 About
               <% end %>
             </li>
             <li>
-              <%= link_to public_homes_top_path, class: 'nav-link text-light' do %>
-                <i class="fas fa-users"></i>
-                 Users
+              <%= link_to public_itemes_index_path, class: 'nav-link text-light' do %>
+                 商品一覧
               <% end %>
             </li>
             <li>
-              <%= link_to public_homes_top_path, class: 'nav-link text_light' do %>
-                <i class="fas fa-book-open"></i>
-                 Books
+              <%= link_to new_public_registration_path, class: 'nav-link text_light' do %>
+                 新規登録
+              <% end %>
+            </li>
+            <li>
+              <%= link_to new_public_session_path, class: 'nav-link text_light' do %>
+                 ログイン
               <% end %>
             </li>
             </ul>
@@ -49,13 +51,7 @@
     <%= yield %>
     </main>
     <footer>
-      <div calss="container mt-5">
-        <div class="row">
-          <div class="mx-auto">
-            <p>CopyRight Infratop.inc</p>
-          </div>
-        </div>
-      </div>
+      
     </footer>
   </body>
 
