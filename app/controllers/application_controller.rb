@@ -6,7 +6,7 @@ class ApplicationController < ActionController::Base
       #public_homes_top_path
       admins_homes_top_path
     when Public
-      homes_top_path
+      public_homes_top_path
     end
   end
 

@@ -33,16 +33,6 @@
                  商品一覧
               <% end %>
             </li>
-            <li>
-              <%= link_to new_public_registration_path, class: 'nav-link text_light' do %>
-                 新規登録
-              <% end %>
-            </li>
-            <li>
-              <%= link_to new_public_session_path, class: 'nav-link text_light' do %>
-                 ログイン
-              <% end %>
-            </li>
             <% else %>
             <li>
               <%= link_to public_homes_about_path, class: 'nav-link text_light' do %>
@@ -52,6 +42,16 @@
             <li>
               <%= link_to public_itemes_index_path, class: 'nav-link text-light' do %>
                  商品一覧
+              <% end %>
+            </li>
+            <li>
+              <%= link_to new_public_registration_path, class: 'nav-link text_light' do %>
+                 新規登録
+              <% end %>
+            </li>
+            <li>
+              <%= link_to new_public_session_path, class: 'nav-link text_light' do %>
+                 ログイン
               <% end %>
             </li>
             <% end %>
@@ -64,7 +64,7 @@
     <%= yield %>
     </main>
     <footer>
-      
+
     </footer>
   </body>
 

@@ -4,16 +4,17 @@ Rails.application.routes.draw do
   get "/", to: 'public/homes#top', as: :public_homes_top
   get "homes/about", to: 'public/homes#about', as: :public_homes_about
 
-  devise_for :admins, controllers: {
-    sessions:      'admins/sessions',
-    passwords:     'admins/passwords',
-    registrations: 'admins/registrations'
-  }
-  devise_for :public, controllers: {
+  devise_for :public,skip: [:passwords], controllers: {
     sessions:      'public/sessions',
-    passwords:     'public/passwords',
+    #passwords:     'public/passwords',
     registrations: 'public/registrations'
   }
+  devise_for :admins, skip: [:registrations, :passwords] ,controllers: {
+    sessions:      'admins/sessions',
+   # passwords:     'admins/passwords',
+   # registrations: 'admins/registrations'
+  }
+
   #devise_for :publics
   #devise_for :admins
 
