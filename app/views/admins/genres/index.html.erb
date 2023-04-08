@@ -1,2 +1,16 @@
-<h1>Admin::Genres#index</h1>
-<p>Find me in app/views/admin/genres/index.html.erb</p>
+<%# ジャンル一覧＆追加画面%>
+<div class="container">
+    <P>ジャンル一覧・追加</P>
+</div>
+<div class="container">
+    <div class="row">
+        <%= form_with model: @admin,method: :post do |f| %>
+            <div class="form-group">
+              <a>タイトル名</a>
+              <label for="book_title">Title</label>
+              <%= f.text_field :title %>
+              <%= f.submit 'Create Book', class:"btn btn-success" %>
+            </div>
+        <% end %>
+    </div>
+</div>
