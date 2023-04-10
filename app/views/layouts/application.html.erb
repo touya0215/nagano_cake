@@ -39,7 +39,18 @@
               <% end %>
             </li>
             <% elsif admin_signed_in? %>
-
+            <li>
+              <%= link_to "商品一覧",admins_items_index_path, class: 'nav-link text_light' %>
+            </li>
+            <li>
+              <%= link_to "会員一覧", admins_customers_index_path, class: 'nav-link text_light' %>
+            </li>
+            <li>
+              <%= link_to "注文履歴一覧", admins_orders_show_path, class: 'nav_link text_light' %>
+            </li>
+            <li>
+              <%= link_to "ジャンル一覧", admins_genres_index_path, class: 'nav_link text_light' %>
+            </li>
             <li>
               <%= link_to destroy_admin_session_path, method: :delete, class: 'nav-link text-light' do %>
                  ログアウト
