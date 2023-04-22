@@ -6,13 +6,12 @@
     <div class="row">
         <%= form_with model: @admin,method: :post do |f| %>
             <div class="form-group">
-              <a>タイトル名</a>
-              <label for="book_title">Title</label>
+              <a>ジャンル名</a>
               <%= f.text_field :title %>
-              <%= f.submit 'Create Book', class:"btn btn-success" %>
+              <%= f.submit '新規登録', class:"btn btn-success" %>
             </div>
             <div class="form_group">
-                
+
             </div>
         <% end %>
     </div>
