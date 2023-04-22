@@ -1,14 +1,26 @@
 class Admins::GenresController < ApplicationController
 
   def create
-    @admin = Admin.new(admin_params)
-    @admin.user_id = current_admin.id
-    @admin.save
+    @genre = Genre.new(genre_params)
+    #@genre.user_id = current_admin.id
+    @genre.save
+    redirect_to admins_genres_index_path
   end
 
   def index
+    @genre = Genre.new
+    @genres = Genre.all
   end
 
   def edit
   end
+
+  private
+
+
+  def genre_params
+    params.require(:genre).permit(:name)
+  end
+
+
 end
