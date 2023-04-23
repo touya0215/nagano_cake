@@ -25,12 +25,12 @@ Rails.application.routes.draw do
     get 'customers/index'
     get 'customers/show'
     get 'customers/edit'
+    resources :customers
   end
   namespace :admins do
     get 'genres/index'
     post 'genres/create'
-    get 'genres/:id/edit'
-    
+    get 'genres/:id/edit', to: 'genres#edit', as: 'genres_edit'
   end
   namespace :admins do
     get 'items/index'

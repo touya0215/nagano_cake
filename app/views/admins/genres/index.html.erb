@@ -23,7 +23,7 @@
                         <%= genre.name %>
                     </td>
                     <td>
-                        <%= link_to "編集する", admins_genres_edit_path, class:"btn btn-sm btn-success" %>
+                        <%= link_to "編集する", admins_genres_edit_path(genre.id), class:"btn btn-sm btn-success" %>
                     </td>
                 </tr>
             <% end %>
