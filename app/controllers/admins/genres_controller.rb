@@ -2,7 +2,6 @@ class Admins::GenresController < ApplicationController
 
   def create
     @genre = Genre.new(genre_params)
-    #@genre.user_id = current_admin.id
     @genre.save
     redirect_to admins_genres_index_path
   end
