@@ -19,24 +19,20 @@ Rails.application.routes.draw do
   #devise_for :admins
 
   namespace :admins do
-    get 'orders/show'
+    #get 'orders/show'
+    resources :orders
   end
   namespace :admins do
-    get 'customers/index'
-    get 'customers/show'
-    get 'customers/edit'
     resources :customers
   end
   namespace :admins do
-    get 'genres/index'
-    post 'genres/create'
-    get 'genres/:id/edit', to: 'genres#edit', as: 'genres_edit'
+    #get 'genres/index'
+    #post 'genres/create'
+    #get 'genres/:id/edit', to: 'genres#edit', as: 'genres_edit'
+    resources :genres
   end
   namespace :admins do
-    get 'items/index'
-    get 'items/new'
-    get 'items/show'
-    get 'items/edit'
+    resources :items
   end
   namespace :admins do
     get 'homes/top'
@@ -59,10 +55,11 @@ Rails.application.routes.draw do
   #namespace :public do
     get 'cart_items/index', to: 'public/cart_items#index', as: :public_cart_itemes_index
   #end
-  #namespace :public do
-    get 'items/index', to: 'public/items#index', as: :public_itemes_index
-    get 'items/show', to: 'public/items#show', as: :public_itemes_show
-  #end
+  namespace :public do
+    #get 'items/index', to: 'public/items#index', as: :public_itemes_index
+    #get 'items/show', to: 'public/items#show', as: :public_itemes_show
+    resources :items
+  end
 
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
 end
