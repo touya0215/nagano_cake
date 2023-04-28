@@ -16,14 +16,18 @@
         <% @items.each do |item| %>
           <tr>
             <td><%= item.id %></td>
-            <td>
+            <td style=text a:link{text-decoration:underline;}>
               <%= link_to admins_item_path(item.id), class: 'text_light' do %>
                 <%= item.name %>
               <% end %>
             </td>
             <td><%= item.price %></td>
             <td><%= item.genre.name %></td>
-            <td><%= item.is_active %></td>
+            <% if item.is_active %>
+              <td style="color:green; font-weight:bold;">販売中</td>
+            <% else %>
+              <td style="color:gray; font-weight:bold;">販売停止中</td>
+            <% end %>
           </tr>
         <% end %>
         </tbody>
