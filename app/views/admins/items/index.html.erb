@@ -1,14 +1,17 @@
 <div class="container">
-  <h3>商品一覧</h3>
-  <div class="row">
-    <table calss="table table-hover table-inverse">
+  <h3 style="width: 11%;  text-align: center; margin-top: 15px; background: #EEEEEE">商品一覧</h3>
+  <div class="text-right ">
+    <%= link_to "+", new_admins_item_path, class: 'text_light  margin: 15px; ' %>
+  </div>
+  <div class="center-block">
+    <table calss=" table table-hover table-inverse">
         <thead>
-          <tr style="background: gray">
-            <th>商品ID</th>
-            <th>商品名</th>
-            <th>税抜価格</th>
-            <th>ジャンル</th>
-            <th>ステータス</th>
+          <tr style=" background: #EEEEEE">
+            <th style="width: 20%;  border: 1px;">商品ID</th>
+            <th style="width: 20%;  border: 1px;">商品名</th>
+            <th style="width: 20%;  border: 1px;">税抜価格</th>
+            <th style="width: 20%;  border: 1px;">ジャンル</th>
+            <th style="width: 20%;  border: 1px;">ステータス</th>
             <th colspan="3"></th>
           </tr>
         </thead>
