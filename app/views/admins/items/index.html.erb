@@ -20,7 +20,10 @@
           <tr>
             <td><%= item.id %></td>
             <td style=text a:link{text-decoration:underline;}>
-              <%= link_to admins_item_path(item.id), class: 'text_light' do %>
+              <%= link_to <div class="form-group">
+          <label for="book_title">Title</label>
+          <%= f.text_field :title %>
+        </div>_path(item.id), class: 'text_light' do %>
                 <%= item.name %>
               <% end %>
             </td>
