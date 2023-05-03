@@ -1,7 +1,60 @@
 <div class="container">
   <h3 style="width: 11%;  text-align: center; margin-top: 15px; background: #EEEEEE">商品編集</h3>
-  <div class="form-group">
-    <label for="items">商品名</label>
-    <%= @items.name %>
+  <div class="row">
+    <table>
+      <div class=" padding: 15px; col-lg-5">
+        <%= image_tag @items.image, :size =>'320x300' %>
+      </div>
+      <div>
+        <tr>
+          <td style="padding-right: 50px;">
+            商品名
+          </td>
+          <td>
+            <%= @items.name %>
+          </td>
+        </tr>
+        <tr>
+          <td style="padding-right: 50px;">
+            商品説明
+          </td>
+          <td>
+            <%= @items.introduction %>
+          </td>
+        </tr>
+        <tr>
+          <td style="padding-right: 50px;">
+            ジャンル
+          </td>
+          <td>
+            <%= @items.genre.name %>
+          </td>
+        </tr>
+        <tr>
+          <td style="padding-right: 50px;">
+            <h7>税込価格</h7>
+            <p>（税抜価格）</p>
+          </td>
+          <td>
+            <%= @items.price %>
+            (<%= @items.add_tax_price.to_s(:dalimited) %>)
+            円
+          </td>
+        </tr>
+        <tr>
+          <td style="padding-right: 50px;">
+            販売ステータス
+          </td>
+          <% if @items.is_active %>
+            <td style="color:green; font-weight:bold;">販売中</td>
+          <% else %>
+            <td style="color:gray; font-weight:bold;">販売停止中</td>
+          <% end %>
+        </tr>
+      </div>
+    </table>
+  </div>
+  <div class="text-center">
+    <%= link_to "編集する", edit_admins_item_path, class:"btn btn-sm btn-success" %>
   </div>
 </div>
