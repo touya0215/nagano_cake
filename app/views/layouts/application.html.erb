@@ -24,19 +24,16 @@
             <ul class="navbar-nav ml-auto">
             <% if public_signed_in? %>
             <li>
-              <%= link_to public_homes_about_path, class: 'nav-link text_light' do %>
-                 About
-              <% end %>
+              <%= link_to "マイページ",public_customers_show_path, class: 'nav-link text_light' %>
             </li>
             <li>
-              <%= link_to public_items_path, class: 'nav-link text-light' do %>
-                 商品一覧
-              <% end %>
+              <%= link_to "商品一覧",public_items_path, class: 'nav-link text-light' %>
             </li>
             <li>
-              <%= link_to destroy_public_session_path, method: :delete, class: 'nav-link text-light' do %>
-                 ログアウト
-              <% end %>
+              <%= link_to "カート",public_cart_itemes_index_path, class: 'nav-link text-light' %>
+            </li>
+            <li>
+              <%= link_to "ログアウト",destroy_public_session_path, method: :delete, class: 'nav-link text-light' %>
             </li>
             <% elsif admin_signed_in? %>
             <li>

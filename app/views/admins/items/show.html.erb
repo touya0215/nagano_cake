@@ -1,5 +1,5 @@
 <div class="container">
-  <h3 style="width: 11%;  text-align: center; margin-top: 15px; background: #EEEEEE">商品編集</h3>
+  <h3 style="width: 11%;  text-align: center; margin-top: 15px; background: #EEEEEE">商品詳細</h3>
   <div class="row">
     <table>
       <div class=" padding: 15px; col-lg-5">
@@ -36,8 +36,8 @@
             <p>（税抜価格）</p>
           </td>
           <td>
-            <%= @items.price %>
-            (<%= @items.add_tax_price.to_s(:dalimited) %>)
+            <%= @items.add_tax_price.to_s(:dalimited) %>
+            (<%= @items.price %>)
             円
           </td>
         </tr>
