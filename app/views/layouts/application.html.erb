@@ -22,18 +22,18 @@
           </button>
           <div class="collapse navbar-collapse" id="navbarNavDropdown">
             <ul class="navbar-nav ml-auto">
-            <% if public_signed_in? %>
+            <% if customer_signed_in? %>
             <li>
-              <%= link_to "マイページ",public_customers_show_path, class: 'nav-link text_light' %>
+              <%= link_to "マイページ",customers_customers_show_path, class: 'nav-link text_light' %>
             </li>
             <li>
               <%= link_to "商品一覧",public_items_path, class: 'nav-link text-light' %>
             </li>
             <li>
-              <%= link_to "カート",public_cart_itemes_index_path, class: 'nav-link text-light' %>
+              <%= link_to "カート",customers_cart_itemes_index_path, class: 'nav-link text-light' %>
             </li>
             <li>
-              <%= link_to "ログアウト",destroy_public_session_path, method: :delete, class: 'nav-link text-light' %>
+              <%= link_to "ログアウト",destroy_customer_session_path, method: :delete, class: 'nav-link text-light' %>
             </li>
             <% elsif admin_signed_in? %>
             <li>
@@ -55,7 +55,7 @@
             </li>
             <% else %>
             <li>
-              <%= link_to public_homes_about_path, class: 'nav-link text_light' do %>
+              <%= link_to customers_homes_about_path, class: 'nav-link text_light' do %>
                  About
               <% end %>
             </li>
@@ -65,12 +65,12 @@
               <% end %>
             </li>
             <li>
-              <%= link_to new_public_registration_path, class: 'nav-link text_light' do %>
+              <%= link_to new_customer_registration_path, class: 'nav-link text_light' do %>
                  新規登録
               <% end %>
             </li>
             <li>
-              <%= link_to new_public_session_path, class: 'nav-link text_light' do %>
+              <%= link_to new_customer_session_path, class: 'nav-link text_light' do %>
                  ログイン
               <% end %>
             </li>

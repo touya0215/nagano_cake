@@ -1,13 +1,14 @@
 Rails.application.routes.draw do
 
 
-  get "/", to: 'public/homes#top', as: :public_homes_top
-  get "homes/about", to: 'public/homes#about', as: :public_homes_about
+  get "/", to: 'public/homes#top', as: :customers_homes_top
+  get "homes/about", to: 'public/homes#about', as: :customers_homes_about
+  root to: "public/homes#top"
 
-  devise_for :publics,skip: [:passwords], controllers: {
-    sessions:      'publics/sessions',
-    #passwords:     'public/passwords',
-    registrations: 'publics/registrations'
+  devise_for :customers, controllers: {
+    sessions:      'public/sessions',
+    passwords:     'public/passwords',
+    registrations: 'public/registrations'
   }
   devise_for :admins, skip: [:registrations, :passwords] ,controllers: {
     sessions:      'admins/sessions',
@@ -38,22 +39,22 @@ Rails.application.routes.draw do
     get 'homes/top'
   end
   #namespace :public do
-    get 'customers/show', to: 'public/customers#show', as: :public_customers_show
-    get 'customers/edit', to: 'public/customers#edit', as: :public_customers_edit
-    get 'customers/unsubscribe', to: 'public/customers#unsubscribe', as: :public_customers_unsubscribe
+    get 'customers/show', to: 'public/customers#show', as: :customers_customers_show
+    get 'customers/edit', to: 'public/customers#edit', as: :customers_customers_edit
+    get 'customers/unsubscribe', to: 'public/customers#unsubscribe', as: :customers_customers_unsubscribe
   #end
   #namespace :public do
-    get 'addersses/index', to: 'publicaddersses/#index', as: :public_addersses_index
-    get 'addersses/edit', to: 'public/addersses#edit', as: :public_addersses_edit
+    get 'addersses/index', to: 'public/addersses/#index', as: :customers_addersses_index
+    get 'addersses/edit', to: 'public/addersses#edit', as: :customers_addersses_edit
   #end
   #namespace :public do
-    get 'oders/new', to: 'public/oders#new', as: :public_oders_new
-    get 'oders/complete', to: 'public/oders#complete', as: :public_oders_complete
-    get 'oders/index', to: 'public/oders#index', as: :public_oders_index
-    get 'oders/show', to: 'public/oders#show', as: :public_oders_show
+    get 'oders/new', to: 'public/oders#new', as: :customers_oders_new
+    get 'oders/complete', to: 'public/oders#complete', as: :customers_oders_complete
+    get 'oders/index', to: 'public/oders#index', as: :customers_oders_index
+    get 'oders/show', to: 'public/oders#show', as: :customers_oders_show
   #end
   #namespace :public do
-    get 'cart_items/index', to: 'public/cart_items#index', as: :public_cart_itemes_index
+    get 'cart_items/index', to: 'public/cart_items#index', as: :customers_cart_itemes_index
   #end
   namespace :public do
     #get 'items/index', to: 'public/items#index', as: :public_itemes_index
