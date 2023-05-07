@@ -57,7 +57,7 @@ class Public::RegistrationsController < Devise::RegistrationsController
   # The path used after sign up.
   def after_sign_up_path_for(resource)#新規登録した後のリダイレクト先を指定
     # super(resource)
-    root_path
+    customers_homes_top_path
   end
   
 
