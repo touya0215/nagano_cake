@@ -9,6 +9,10 @@ class ApplicationController < ActionController::Base
     end
   end
   
+  def new
+    
+  end
+  
   protected
 
 end

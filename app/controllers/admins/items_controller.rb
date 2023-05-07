@@ -30,7 +30,7 @@ class Admins::ItemsController < ApplicationController
     @item = Item.find(params[:id])
     if @item.update(item_params)
       flash[:notice] = "You have updated item successfully."
-      redirect_to admins_items_path
+      redirect_to admins_item_path
     else
       render :new
     end

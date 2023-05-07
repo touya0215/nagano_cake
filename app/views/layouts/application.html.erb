@@ -20,6 +20,11 @@
                         aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
           </button>
+          <% if customer_signed_in? %>
+            <a style="margin-left: 100px;" class="navbar-brand p-3">
+              <span>ようこそ、<%= current_customer.last_name %>さん！</span>
+            </a>
+          <% end %>
           <div class="collapse navbar-collapse" id="navbarNavDropdown">
             <ul class="navbar-nav ml-auto">
             <% if customer_signed_in? %>
@@ -43,10 +48,10 @@
               <%= link_to "会員一覧", admins_customers_path, class: 'nav-link text_light' %>
             </li>
             <li>
-              <%= link_to "注文履歴一覧", admins_orders_path, class: 'nav_link text_light' %>
+              <%= link_to "注文履歴一覧", admins_homes_top_path, class: 'nav_link text_light' %>
             </li>
             <li>
-              <%= link_to "ジャンル一覧", admins_genres_path, class: 'nav_link text_light' %>
+              <%= link_to "ジャンル一覧", admins_genres_path, class: 'margin: 20px; nav_link text_light' %>
             </li>
             <li>
               <%= link_to destroy_admin_session_path, method: :delete, class: 'nav-link text-light' do %>
