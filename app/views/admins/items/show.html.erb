@@ -37,7 +37,7 @@
           </td>
           <td>
             <%= @items.add_tax_price.to_s(:dalimited) %>
-            (<%= @items.price %>)
+            (<%= @items.price.to_s(:delimited) %>)
             円
           </td>
         </tr>
