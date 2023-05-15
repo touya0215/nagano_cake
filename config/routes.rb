@@ -38,13 +38,14 @@ Rails.application.routes.draw do
   namespace :admins do
     get 'homes/top'
   end
-  #namespace :public do
-    get 'customers/show', to: 'public/customers#show', as: :customers_customers_show
-    get 'customers/edit', to: 'public/customers#edit', as: :customers_customers_edit
+  #namespace :customer do
+    get 'customers/show/:id', to: 'public/customers#show', as: :customers_customers_show
+    get 'customers/edit/:id', to: 'public/customers#edit', as: :customers_customers_edit
+    patch 'customers/edit/:id', to: 'public/customers#update'
     get 'customers/unsubscribe', to: 'public/customers#unsubscribe', as: :customers_customers_unsubscribe
   #end
   #namespace :public do
-    get 'addersses/index', to: 'public/addersses/#index', as: :customers_addersses_index
+    get 'addersses/index', to: 'public/addersses#index', as: :customers_addersses_index
     get 'addersses/edit', to: 'public/addersses#edit', as: :customers_addersses_edit
   #end
   #namespace :public do

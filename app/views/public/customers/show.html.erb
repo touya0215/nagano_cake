@@ -1,2 +1,59 @@
-<h1>Public::Customers#show</h1>
-<p>Find me in app/views/public/customers/show.html.erb</p>
+<div class="container">
+  <h3 style="width: 15%; text-align: center; margin: 40px; background: #EEEEEE">マイページ</h3>
+  <div class="row" style="margin-bottom: 20px;">
+    <h3 style="float:left">
+      <b>登録情報</b>
+    </h3>
+    <div style="margin-left: 20px;">
+      <%= link_to "編集する", customers_customers_edit_path(current_customer.id), class:"margin: 20px; btn btn-success" %>
+    </div>
+  </div>
+  <div class="row">
+    <table border="1">
+      <tr>
+        <td style="background: #EEEEEE">氏名</td>
+        <td>
+          <%= @customers.first_name %> <%= @customers.last_name %>
+        </td>
+      </tr>
+      <tr>
+        <td style="background: #EEEEEE">カナ</td>
+        <td>
+          <%= @customers.first_name_kana %> <%= @customers.last_name_kama %>
+        </td>
+      </tr>
+      <tr>
+        <td style="background: #EEEEEE">郵便番号</td>
+        <td><%= @customers.postal_code %></td>
+      </tr>
+      <tr>
+        <td style="background: #EEEEEE">住所</td>
+        <td><%= @customers.address %>　　　</td>
+      </tr>
+      <tr>
+        <td style="background: #EEEEEE">電話番号</td>
+        <td><%= @customers.telephone_number %></td>
+      </tr>
+      <tr>
+        <td style="background: #EEEEEE">メールアドレス　　　</td>
+        <td><%= @customers.email %>　　　</td>
+      </tr>
+    </table>
+  </div>
+  <div class="row" style="margin: 20px  0px;">
+    <h3 style="float:left">
+      <b>配送先</b>
+    </h3>
+    <div style="margin-left: 48px;">
+      <%= link_to "一覧を見る",  customers_addersses_index_path, class:"margin: 20px; btn btn-primary" %>
+    </div>
+  </div>
+  <div class="row" style="margin: 20px  0px;">
+    <h3 style="float:left">
+      <b>注文履歴</b>
+    </h3>
+    <div style="margin-left: 20px;">
+      <%= link_to "一覧を見る", customers_oders_index_path, class:"margin: 20px; btn btn-primary" %>
+    </div>
+  </div>
+</div>
