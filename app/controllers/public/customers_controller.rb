@@ -26,6 +26,12 @@ class Public::CustomersController < ApplicationController
     redirect_to customer_path(params[:id])
   end
 
+  def destroy
+    @customers = Customer.find(params[:id])
+    @customers.destroy!
+    redirect_to customers_homes_top_path
+  end
+
   private
 
 
