@@ -9,7 +9,7 @@ class Public::CustomersController < ApplicationController
   def show
     @customer = Customer.new
     @customers = current_customer
-    
+
   end
 
   def edit
@@ -18,6 +18,12 @@ class Public::CustomersController < ApplicationController
   end
 
   def unsubscribe
+  end
+
+  def update
+    @customers = Customer.find(params[:id])
+    @customers.update(customer_params)
+    redirect_to customer_path(params[:id])
   end
 
   private
