@@ -14,7 +14,7 @@
       </div>
 
       <div class="col-md-5">
-        <%= form_with model: @customers,url: customers_customers_edit_path(@customers.id), method: :patch do |f| %>
+        <%= form_with model: @customers,url: customer_path(@customers.id), method: :patch do |f| %>
           <div style="margin-top: 15px;">
             <%= f.text_field :last_name %>
             <%= f.text_field :first_name %>
@@ -30,7 +30,7 @@
           <div style="margin-top: 15px;">
             <%= f.submit '編集内容を保存', class:"btn btn-sm btn-success" %>
             <label>　　    　　　　　　　　　　　</label>
-            <%= link_to "退会する", customers_customers_unsubscribe_path, class:"margin-top: 20px; btn btn-sm btn-danger" %>
+            <%= link_to "退会する", customer_unsubscribe_path, class:"margin-top: 20px; btn btn-sm btn-danger" %>
           </div>
         <% end %>
       </div>

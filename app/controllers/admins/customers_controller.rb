@@ -18,7 +18,7 @@ class Admins::CustomersController < ApplicationController
     @customers = Customers.find(params[:id])
     if @customers.update(customer_params)
       flash[:notice] = "You have updated item successfully."
-      redirect_to customers_customers_show_path(params[:id])
+      redirect_to customer_path(params[:id])
     else
       render :show
     end

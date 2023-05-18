@@ -26,7 +26,7 @@ class Public::SessionsController < Devise::SessionsController
   # end
   
   def after_sign_in_path_for(_resource)#ログインのリダイレクト先を指定
-    customers_customers_show_path(current_customer.id)
+    customer_path(current_customer.id)
   end
   
 end

@@ -5,7 +5,7 @@
       <b>登録情報</b>
     </h3>
     <div style="margin-left: 20px;">
-      <%= link_to "編集する", customers_customers_edit_path(current_customer.id), class:"margin: 20px; btn btn-success" %>
+      <%= link_to "編集する", edit_customer_path(current_customer.id), class:"margin: 20px; btn btn-success" %>
     </div>
   </div>
   <div class="row">
@@ -13,7 +13,7 @@
       <tr>
         <td style="background: #EEEEEE">氏名</td>
         <td>
-          <%= @customers.last_name %> <%= @customers.first_name %> 
+          <%= @customers.last_name %> <%= @customers.first_name %>
         </td>
       </tr>
       <tr>
@@ -45,7 +45,7 @@
       <b>配送先</b>
     </h3>
     <div style="margin-left: 48px;">
-      <%= link_to "一覧を見る",  customers_addersses_index_path, class:"margin: 20px; btn btn-primary" %>
+      <%= link_to "一覧を見る",  addersses_path, class:"margin: 20px; btn btn-primary" %>
     </div>
   </div>
   <div class="row" style="margin: 20px  0px;">
@@ -53,7 +53,7 @@
       <b>注文履歴</b>
     </h3>
     <div style="margin-left: 20px;">
-      <%= link_to "一覧を見る", customers_oders_index_path, class:"margin: 20px; btn btn-primary" %>
+      <%= link_to "一覧を見る", oders_path, class:"margin: 20px; btn btn-primary" %>
     </div>
   </div>
 </div>

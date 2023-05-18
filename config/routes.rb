@@ -22,42 +22,40 @@ Rails.application.routes.draw do
   namespace :admins do
     #get 'orders/show'
     resources :orders
-  end
-  namespace :admins do
     resources :customers
-  end
-  namespace :admins do
     #get 'genres/index'
     #post 'genres/create'
     #get 'genres/:id/edit', to: 'genres#edit', as: 'genres_edit'
     resources :genres
-  end
-  namespace :admins do
     resources :items
-  end
-  namespace :admins do
     get 'homes/top'
   end
-  #namespace :customer do
-    get 'customers/show/:id', to: 'public/customers#show', as: :customers_customers_show
-    get 'customers/edit/:id', to: 'public/customers#edit', as: :customers_customers_edit
-    patch 'customers/edit/:id', to: 'public/customers#update'
-    get 'customers/unsubscribe', to: 'public/customers#unsubscribe', as: :customers_customers_unsubscribe
+  
+  scope module: :public do
+  # #namespace :customer do
+  #   get 'customers/show/:id', to: 'public/customers#show', as: :customers_customers_show
+  #   get 'customers/edit/:id', to: 'public/customers#edit', as: :customers_customers_edit
+  #   patch 'customers/edit/:id', to: 'public/customers#update'
+     get '/unsubscribe', to: 'customers#unsubscribe', as: :customer_unsubscribe
+    resources :customers
+  # #end
+  # #namespace :public do
+  #   get 'addersses/index', to: 'public/addersses#index', as: :customers_addersses_index
+  #   get 'addersses/edit', to: 'public/addersses#edit', as: :customers_addersses_edit
+    resources :addersses
+  # #end
+  # #namespace :public do
+  #   get 'oders/new', to: 'public/oders#new', as: :customers_oders_new
+  #   get 'oders/complete', to: 'public/oders#complete', as: :customers_oders_complete
+  #   get 'oders/index', to: 'public/oders#index', as: :customers_oders_index
+  #   get 'oders/show', to: 'public/oders#show', as: :customers_oders_show
+    resources :oders
+  # #end
+  # #namespace :public do
+  #   get 'cart_items/index', to: 'public/cart_items#index', as: :customers_cart_itemes_index
+    resources :cart_items
   #end
-  #namespace :public do
-    get 'addersses/index', to: 'public/addersses#index', as: :customers_addersses_index
-    get 'addersses/edit', to: 'public/addersses#edit', as: :customers_addersses_edit
-  #end
-  #namespace :public do
-    get 'oders/new', to: 'public/oders#new', as: :customers_oders_new
-    get 'oders/complete', to: 'public/oders#complete', as: :customers_oders_complete
-    get 'oders/index', to: 'public/oders#index', as: :customers_oders_index
-    get 'oders/show', to: 'public/oders#show', as: :customers_oders_show
-  #end
-  #namespace :public do
-    get 'cart_items/index', to: 'public/cart_items#index', as: :customers_cart_itemes_index
-  #end
-  namespace :public do
+  # namespace :public do
     #get 'items/index', to: 'public/items#index', as: :public_itemes_index
     #get 'items/show', to: 'public/items#show', as: :public_itemes_show
     resources :items
