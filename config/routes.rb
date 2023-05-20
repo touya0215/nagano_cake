@@ -30,7 +30,7 @@ Rails.application.routes.draw do
     resources :items
     get 'homes/top'
   end
-  
+
   scope module: :public do
   # #namespace :customer do
   #   get 'customers/show/:id', to: 'public/customers#show', as: :customers_customers_show
@@ -42,7 +42,7 @@ Rails.application.routes.draw do
   # #namespace :public do
   #   get 'addersses/index', to: 'public/addersses#index', as: :customers_addersses_index
   #   get 'addersses/edit', to: 'public/addersses#edit', as: :customers_addersses_edit
-    resources :addersses
+    resources :addresses
   # #end
   # #namespace :public do
   #   get 'oders/new', to: 'public/oders#new', as: :customers_oders_new
