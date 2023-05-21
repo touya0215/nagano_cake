@@ -1,2 +1,11 @@
-<h1>Public::Addersses#edit</h1>
-<p>Find me in app/views/public/addersses/edit.html.erb</p>
+<div class="container">
+  <div class="row">
+    <table>
+      <%= form_with model: @addressess,url: address_path(@addressess.id), method: :patch do |addressess| %>
+        <div class="col-md-2">
+          
+        </div>
+      <% end %>
+    </table>
+  </div>
+</div>

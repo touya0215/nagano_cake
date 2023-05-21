@@ -12,6 +12,14 @@ class Public::AddressesController < ApplicationController
   end
 
   def edit
+    @addresses = Addresse.new
+    @addressess = Addresse.find(params[:id])
+  end
+  
+  def destroy
+    @addresses = Addresse.find(params[:id])
+    @addresses.destroy
+    redirect_to addresses_path
   end
 
   private

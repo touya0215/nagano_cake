@@ -18,29 +18,32 @@
           <div style="margin: 20px;">
             <%= f.text_field :name %>
             <label>　　　　　　　　　　　　</label>
-            <a style="padding:10px 20px;"><%= f.submit '新規登録', class:"btn btn-sm btn-success" %></a>
+            <a style="padding:10px 20px;"><%= f.submit '新規登録', class:"btn btn-sm btn-success", style:"padding:1px 20px;" %></a>
           </div>
         <% end %>
       </div>
     </table>
   </div>
   <dev class="row">
-    <table>
-      <div class="col-md-2">
-        <% @addressess.each do |addressess| %>
-          <tr>
-            <td>郵便番号</td>
-            <td>住所</td>
-            <td>宛名</td>
-            <td></td>
+    <table border="1">
+      <div>
+          <tr style="background: #EEEEEE">
+            <th style="padding: 10px;">郵便番号</th>
+            <th style="padding: 10px;">住所</th>
+            <th style="padding: 10px;">宛名</th>
+            <th></th>
           </tr>
-          <tr>
-            <td><%= addressess.postal_code %></td>
-            <td><%= addressess.address %></td>
-            <td><%= addressess.name %></td>
-            <td><%= addressess.postal_code %></td>
-          </tr>
-        <% end %>
+          <% @addressess.each do |addressess| %>
+            <tr>
+              <td style="padding: 10px;"><%= addressess.postal_code %></td>
+              <td style="padding: 10px;"><%= addressess.address %></td>
+              <td style="padding: 10px;"><%= addressess.name %></td>
+              <td style="padding: 10px 30px;">
+                <%= link_to "編集する", edit_address_path(addressess.id), class:"btn btn-success"  %>
+                <%= link_to "編集する", address_path(addressess.id), method: :delete, class:"btn btn-danger"  %>
+              </td>
+            </tr>
+          <% end %>
       </div>
     </table>
   </dev>
