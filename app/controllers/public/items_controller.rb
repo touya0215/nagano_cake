@@ -9,5 +9,5 @@ class Public::ItemsController < ApplicationController
     @items = Item.find(params[:id])
   end
   
-  
+ 
 end
