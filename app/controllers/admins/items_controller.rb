@@ -19,6 +19,7 @@ class Admins::ItemsController < ApplicationController
   def show
     @item = Item.new
     @items = Item.find(params[:id])
+    @cart_item = CartItem.new
   end
 
   def edit
