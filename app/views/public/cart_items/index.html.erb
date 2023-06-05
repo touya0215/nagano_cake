@@ -20,8 +20,8 @@
                             <%= c.submit '変更', class:"btn btn-sm btn-success" %>
                         <% end %>
                     </td>
-                    <td><%= f.item.add_tax_price.to_s(:dalimited) %></td>
-                    <td><%= f.amount %></td>
+                    <td><%= f.item.add_tax_price.to_s(:delimited) %></td>
+                    <td><%= f.sum_of_price.floor.to_s(:delimited) %></td>
                     <td><%= f.amount %></td>
                 </tr>
             <% end %>

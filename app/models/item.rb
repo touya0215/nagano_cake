@@ -8,5 +8,9 @@ class Item < ApplicationRecord
       #税率１０％で統一
     (self.price * 1.10).round
   end
+  
+  def texin_price
+    price*1.1
+  end
 
 end
