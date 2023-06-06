@@ -12,15 +12,16 @@
             <% @cart_items.each do |f| %>
                 <tr>
                     <td>
-                        <%= f.amount %>
+                        <%= image_tag f.item.image, :size => '50x40' %>
+                        <%= f.item.name %>
                     </td>
+                    <td><%= f.item.add_tax_price.to_s(:delimited) %></td>
                     <td>
                         <%= form_with model: f, url:cart_item_path(f), method: :patch do |c| %>
                             <%= c.select :amount, (1..10).to_a,size: 3, class: 'form-control' , required: true %>
                             <%= c.submit '変更', class:"btn btn-sm btn-success" %>
                         <% end %>
                     </td>
-                    <td><%= f.item.add_tax_price.to_s(:delimited) %></td>
                     <td><%= f.sum_of_price.floor.to_s(:delimited) %></td>
                     <td><%= f.amount %></td>
                 </tr>
