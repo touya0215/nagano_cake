@@ -1,8 +1,8 @@
 <h3 style="width: 25%; text-align: center; margin: 40px 60px; background: #EEEEEE">ショッピングカート</h3>
 <dev class="container">
     <div class="row" style="margin: 0px 30px;">
-        <table>
-            <tr class="col-md-3" style="margin: 30px 0px;">
+        <table border="1" style="margin: auto;">
+            <tr class="col-md-3" style="margin: 30px 0px; background: #EEEEEE">
                 <td>商品名</td>
                 <td>単価（税込み）</td>
                 <td>数量</td>
@@ -28,7 +28,22 @@
             <% end %>
         </table>
     </div>
-    <div style="margin: 20px 50px;">
+    <table border="1"  style="margin: 15px 550px;">
+        <tr>
+            <td style="background: #EEEEEE">合計金額</td>
+            <td>
+                <%= @total.round.to_s(:delimited) %>
+            </td>
+        </tr>
+    </table>
+    <div style="margin: 20px 550px;">
         <%= link_to "買い物を続ける", items_path, class:"margin: 20px; btn btn-sm btn-primary" %>
     </div>
 </dev>
+<div class="row">
+    <table>
+    <div class="text-center, col-md-2" style="margin: auto;">
+        <%= link_to "情報入力に進む", new_oder_path, class:"padding: 20px; btn btn-sm btn-success" %>
+    </div>
+</table>
+</div>
