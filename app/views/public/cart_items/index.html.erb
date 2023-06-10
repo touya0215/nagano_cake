@@ -23,9 +23,12 @@
                         <% end %>
                     </td>
                     <td><%= f.sum_of_price.floor.to_s(:delimited) %></td>
-                    <td><%= f.amount %></td>
+                    <td><%= link_to "削除する", cart_item_path(f.id), method: :delete, class:"btn btn-danger"  %></td>
                 </tr>
             <% end %>
         </table>
+    </div>
+    <div style="margin: 20px 50px;">
+        <%= link_to "買い物を続ける", items_path, class:"margin: 20px; btn btn-sm btn-primary" %>
     </div>
 </dev>
