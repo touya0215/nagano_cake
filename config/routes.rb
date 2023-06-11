@@ -49,8 +49,12 @@ Rails.application.routes.draw do
   #   get 'oders/complete', to: 'public/oders#complete', as: :customers_oders_complete
   #   get 'oders/index', to: 'public/oders#index', as: :customers_oders_index
   #   get 'oders/show', to: 'public/oders#show', as: :customers_oders_show
-    resources :orders
-  # #end
+    resources :orders do
+      collection do
+        post 'comfirm'
+        get 'complete'
+      end
+    end
   # #namespace :public do
   #   get 'cart_items/index', to: 'public/cart_items#index', as: :customers_cart_itemes_index
     resources :cart_items do
