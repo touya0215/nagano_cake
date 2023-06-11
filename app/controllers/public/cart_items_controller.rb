@@ -32,6 +32,12 @@ class Public::CartItemsController < ApplicationController
     @cart_items.destroy
     redirect_to cart_items_path
   end
+  
+  def all_destroy
+    @cart_items = current_customer.cart_items
+    @cart_items.destroy_all
+    redirect_to cart_items_path
+  end
 
   private
 

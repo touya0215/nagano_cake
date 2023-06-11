@@ -53,7 +53,12 @@ Rails.application.routes.draw do
   # #end
   # #namespace :public do
   #   get 'cart_items/index', to: 'public/cart_items#index', as: :customers_cart_itemes_index
-    resources :cart_items
+    resources :cart_items do
+      collection do
+        delete '/' => 'cart_items#all_destroy'
+      end
+    end
+
   #end
   # namespace :public do
     #get 'items/index', to: 'public/items#index', as: :public_itemes_index
