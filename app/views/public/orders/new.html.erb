@@ -20,9 +20,9 @@
       <div class="col-md-12">
         <h4><b>お届け先</b></h4>
         <div style="margin: 0px 20px;">
-          <%= form_with model: @order_addresses,url: orders_path,method: :post do |f| %>
+          <%= form_with model: @order, url: comfirm_orders_path, method: :post, local: true do |f| %>
             <div style="margin: 10px 0px;">
-              <%= f.radio_button :address, 1, :checked => "checked" %>
+              <%= f.radio_button :address_number, 1 %>
               <a>ご自身の住所</a><br>
               <div style="margin: 0px 30px;">
                 <a>
@@ -33,14 +33,14 @@
               </div>
             </div>
             <div>
-              <%= f.radio_button :address, 2 %>
+              <%= f.radio_button :address_number, 2 %>
               <label>登録済み住所から選択</label>
               <div style="margin: 0px 30px;">
                 <a><%= f.collection_select :address_id, @addresses, :id, :address %></a>
               </div>
             </div>
             <div>
-              <%= f.radio_button :address, 3 %>
+              <%= f.radio_button :address_number, 3 %>
               <label>新しいお届け先</label>
               <table>
                 <div class="col-md-3">
