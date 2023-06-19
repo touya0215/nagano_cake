@@ -7,11 +7,11 @@
         <div style="margin: 0px 20px;">
           <%= form_with model: @order,url: orders_path,method: :post do |f| %>
             <div>
-              <%= f.radio_button :payment_method, 0, :checked => "checked" %>
+              <%= f.radio_button :payment_method, :"クレジットカード", :checked => "checked" %>
               <label>クレジットカード</label>
             </div>
             <div>
-              <%= f.radio_button :payment_method, 1 %>
+              <%= f.radio_button :payment_method, :"銀行振込" %>
               <label>銀行振込</label>
             </div>
           <% end %>
