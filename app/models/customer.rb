@@ -6,5 +6,5 @@ class Customer < ApplicationRecord
 
   has_many :cart_items
   has_many :order
-  has_many :addresse
+  has_many :addresses
 end

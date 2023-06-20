@@ -2,43 +2,41 @@
   <h3 style="width: 20%;  text-align: center; margin: 20px 30px; background: #EEEEEE">注文情報入力</h3>
   <div class="row">
     <table>
+      <%= form_with model: @order,url: comfirm_orders_path,method: :post do |f| %>
       <div class="col-md-10">
         <h4><b>支払い方法</b></h4>
         <div style="margin: 0px 20px;">
-          <%= form_with model: @order,url: orders_path,method: :post do |f| %>
-            <div>
-              <%= f.radio_button :payment_method, :"クレジットカード", :checked => "checked" %>
-              <label>クレジットカード</label>
-            </div>
-            <div>
-              <%= f.radio_button :payment_method, :"銀行振込" %>
-              <label>銀行振込</label>
-            </div>
-          <% end %>
+          <div>
+            <%= f.radio_button :payment_method, 0, :checked => "checked" %>
+            <label>クレジットカード</label>
+          </div>
+          <div>
+            <%= f.radio_button :payment_method, 1 %>
+            <label>銀行振込</label>
+          </div>
         </div>
-      </div>
-      <div class="col-md-12">
-        <h4><b>お届け先</b></h4>
-        <div style="margin: 0px 20px;">
-          <%= form_with model: @order, url: comfirm_orders_path, method: :post, local: true do |f| %>
-            <div style="margin: 10px 0px;">
-              <%= f.radio_button :address_number, 1 %>
-              <a>ご自身の住所</a><br>
-              <div style="margin: 0px 30px;">
-                <a>
-                  〒<%= current_customer.postal_code %>
-                  <%= current_customer.address %>
-                </a><br>
-                <a><%= current_customer.last_name %><%= current_customer.first_name %></a>
+        </div>
+        <div class="col-md-12">
+          <h4><b>お届け先</b></h4>
+          <div style="margin: 0px 20px;">
+              <div style="margin: 10px 0px;">
+                <%= f.radio_button :address_number, 1 %>
+                <a>ご自身の住所</a><br>
+                <div style="margin: 0px 30px;">
+                  <a>
+                    〒<%= current_customer.postal_code %>
+                    <%= current_customer.address %>
+                  </a><br>
+                  <a><%= current_customer.last_name %><%= current_customer.first_name %></a>
+                </div>
               </div>
-            </div>
-            <div>
-              <%= f.radio_button :address_number, 2 %>
-              <label>登録済み住所から選択</label>
-              <div style="margin: 0px 30px;">
-                <a><%= f.collection_select :address_id, @addresses, :id, :address %></a>
+              <div>
+                <%= f.radio_button :address_number, 2 %>
+                <label>登録済み住所から選択</label>
+                <div style="margin: 0px 30px;">
+                  <%= f.select :address_id, options_from_collection_for_select(@addresses, :id, :address_display) %>
+                </div>
               </div>
-            </div>
             <div>
               <%= f.radio_button :address_number, 3 %>
               <label>新しいお届け先</label>
@@ -64,9 +62,9 @@
             <div class="col-md-2" style="margin: auto;">
               <%= f.submit "確認画面に進む", class: "btn btn-primary" %>
             </div>
-          <% end %>
+          </div>
         </div>
-      </div>
+      <% end %>
     </table>
   </div>
 </div>

@@ -1,7 +1,7 @@
 class Public::OrdersController < ApplicationController
   def new
     @order = Order.new
-    @addresses = current_customer.addresse
+    @addresses = current_customer.addresses
   end
 
   def complete
@@ -29,8 +29,9 @@ class Public::OrdersController < ApplicationController
   # view で定義している address_number が"2"だったときにこの処理を実行します
       # if Addresse.exists?(name: params[:order][:registered])
   # registered は viwe で定義しています
-        @order.name = Addresse.name
-        @order.address = Addresse.address
+        @order.name = Address.find(params[:order][:address_id]).name
+        @order.address = Address.find(params[:order][:address_id]).address
+        @order.postal_code = Address.find(params[:order][:address_id]).postal_code
       # else
         # render :new
   # 既存のデータを使っていますのでありえないですが、万が一データが足りない場合は new を render します
