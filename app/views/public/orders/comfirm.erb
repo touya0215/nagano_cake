@@ -4,8 +4,9 @@
         <table>
             <tr>
                 <th>支払い方法</th>
-                <td>
-                    <%= @order.payment_method %>
+                <td style="padding: 0px 20px;">
+                    <!--下記は日本語に変換するために_i18nを使用-->
+                    <%= @order.payment_method_i18n %>
                 </td>
             </tr>
             <tr>

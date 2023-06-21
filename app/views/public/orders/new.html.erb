@@ -7,11 +7,11 @@
         <h4><b>支払い方法</b></h4>
         <div style="margin: 0px 20px;">
           <div>
-            <%= f.radio_button :payment_method, 0, :checked => "checked" %>
+            <%= f.radio_button :payment_method, Order.payment_methods.key(0), :checked => "checked" %>
             <label>クレジットカード</label>
           </div>
           <div>
-            <%= f.radio_button :payment_method, 1 %>
+            <%= f.radio_button :payment_method, Order.payment_methods.key(1) %>
             <label>銀行振込</label>
           </div>
         </div>
