@@ -15,12 +15,13 @@ class Public::OrdersController < ApplicationController
   end
 
   def comfirm
+    @cart_items = current_customer.cart_items
     @order = Order.new(order_params)
       if params[:order][:address_number] == "1"
         @order.name = current_customer.last_name + current_customer.first_name # @order の各カラムに必要なものを入れます
         @order.address = current_customer.address
         @order.postal_code = current_customer.postal_code
-  
+
       elsif params[:order][:address_number] == "2"
           @order.name = Address.find(params[:order][:address_id]).name
           @order.address = Address.find(params[:order][:address_id]).address
@@ -30,14 +31,14 @@ class Public::OrdersController < ApplicationController
       end
   end
 
-  def create 
-    
+  def create
+
   end
 
   private
 
   def order_params
-    params.require(:order).permit(:postal_code, :address, :name, :payment_method, :postal_code )
+    params.require(:order).permit(:postal_code, :address, :name, :payment_method, :postal_code, :shipping_cost, :total_payment )
   end
 
   def address_params

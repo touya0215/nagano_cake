@@ -2,14 +2,51 @@
     <h3 style="width: 20%;  text-align: center; margin: 20px 30px; background: #EEEEEE">注文情報確認</h3>
     <div class="row">
         <table>
-            <tr>
+            <div class="col-md-6">
+                <tr class="col-md-3" style="margin: 30px 0px; background: #EEEEEE">
+                    <td>商品名</td>
+                    <td>単価（税込み）</td>
+                    <td>数量</td>
+                    <td>小計　　　</td>
+                </tr>
+                <% @cart_items.each do |f| %>
+                <tr>
+                    <td style="padding: 10px 20px 10px 10px;">
+                        <%= image_tag f.item.image, :size => '50x40' %>
+                        <b><%= f.item.name %></b>
+                    </td>
+                    <td style="padding: 10px 20px 10px 10px;"><b><%= f.item.add_tax_price.to_s(:delimited) %></b></td>
+                    <td><%= f.amount %></td>
+                    <td style="padding: 10px 20px 10px 10px;"><b><%= f.sum_of_price.floor.to_s(:delimited) %></b></td>
+                </tr>
+                <% end %>
+            </div>
+            <div class="col-md-4">
+                <tr>
+                    <td>送料</td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td>商品合計</td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td>請求金額</td>
+                    <td></td>
+                </tr>
+            </div>
+        </table>
+    </div>
+    <div class="row" style="margin: 20px 0px;">
+        <table>
+             <tr style="padding: 20px 0px;">
                 <th>支払い方法</th>
                 <td style="padding: 0px 20px;">
                     <!--下記は日本語に変換するために_i18nを使用-->
                     <%= @order.payment_method_i18n %>
                 </td>
             </tr>
-            <tr>
+            <tr style="padding: 20px 0px;">
                 <th>お届け先</th>
                 <td style="padding: 0px 20px;">
                     〒<%= @order.postal_code %>
