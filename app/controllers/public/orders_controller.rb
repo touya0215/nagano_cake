@@ -17,6 +17,8 @@ class Public::OrdersController < ApplicationController
   def comfirm
     @cart_items = current_customer.cart_items
     @order = Order.new(order_params)
+    @order.shipping_cost = 800
+    @order.total_payment = @cart_items.inject(0) { |sum, item| sum + item.sum_of_price }
       if params[:order][:address_number] == "1"
         @order.name = current_customer.last_name + current_customer.first_name # @order の各カラムに必要なものを入れます
         @order.address = current_customer.address

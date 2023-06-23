@@ -24,15 +24,15 @@
             <div class="col-md-4">
                 <tr>
                     <td>送料</td>
-                    <td></td>
+                    <td><%= @order.shipping_cost %></td>
                 </tr>
                 <tr>
                     <td>商品合計</td>
-                    <td></td>
+                    <td><%= @order.total_payment.round.to_s(:delimited) %></td>
                 </tr>
                 <tr>
                     <td>請求金額</td>
-                    <td></td>
+                    <td><%= @order.sum_total %></td>
                 </tr>
             </div>
         </table>
