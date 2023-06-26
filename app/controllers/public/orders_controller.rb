@@ -14,6 +14,13 @@ class Public::OrdersController < ApplicationController
   def show
   end
 
+  def create
+    @order = Order.new(order_params)
+    @order.total_payment = @order.total_payment
+    @order.save
+    redirect_to complete_orders_path
+  end
+
   def comfirm
     @cart_items = current_customer.cart_items
     @order = Order.new(order_params)
@@ -25,16 +32,17 @@ class Public::OrdersController < ApplicationController
         @order.postal_code = current_customer.postal_code
 
       elsif params[:order][:address_number] == "2"
-          @order.name = Address.find(params[:order][:address_id]).name
-          @order.address = Address.find(params[:order][:address_id]).address
-          @order.postal_code = Address.find(params[:order][:address_id]).postal_code
+        @order.name = Address.find(params[:order][:address_id]).name
+        @order.address = Address.find(params[:order][:address_id]).address
+        @order.postal_code = Address.find(params[:order][:address_id]).postal_code
+
+      elsif params[:order][:address_number] == "3"
+        @order.postal_code = params[:order][:postal_code]
+        @order.address = params[:order][:address]
+        @order.name = params[:order][:name]
       else
         redirect_to cart_items_path#遷移したいページ # ありえないですが、万が一当てはまらないデータが渡ってきた場合の処理です
       end
-  end
-
-  def create
-
   end
 
   private
@@ -43,8 +51,5 @@ class Public::OrdersController < ApplicationController
     params.require(:order).permit(:postal_code, :address, :name, :payment_method, :postal_code, :shipping_cost, :total_payment )
   end
 
-  def address_params
-  params.require(:order).permit(:name, :address)
-  end
 
 end
