@@ -1,2 +1,44 @@
-<h1>Public::Oders#show</h1>
-<p>Find me in app/views/public/oders/show.html.erb</p>
+<div class="container">
+  <div class="row">
+    <table border="1" class="col-md-6" style="margin: 20px 0px;">
+      <title>注文情報</title>
+      <tr>
+        <td>注文日</td>
+        <td><%= @order.created_at.strftime('%Y/%m/%d') %></td>
+      </tr>
+      <tr>
+        <td>配送先</td>
+        <td>
+          <%= @order.postal_code %><br>
+          <%= @order.address %><br>
+          <%= @order.name %>
+        </td>
+      </tr>
+      <tr>
+        <td>支払い方法</td>
+        <td><%= @order.payment_method_i18n %></td>
+      </tr>
+    </table>
+    <table border="1" class="col-md-4" style="margin: 20px 10px">
+      <caption align="top">請求情報</caption>
+      <tr>
+        <td>商品合計</td>
+        <td><%= @order.total_payment %></td>
+      </tr>
+      <tr>
+        <td>配送先</td>
+        <td><%= @order.shipping_cost %></td>
+      </tr>
+      <tr>
+        <td>ご請求額</td>
+        <td><%= @order.total_payment %></td>
+      </tr>
+    </table>
+  </div>
+  <div class="row">
+    <table>
+      <h4>注文内容</h4>
+      <tr></tr>
+    </table>
+  </div>
+</div>
