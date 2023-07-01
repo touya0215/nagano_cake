@@ -10,8 +10,8 @@
       <% @order.each do |f| %>
       <tr>
         <td>
-          <%= link_to admins_order_path(@order) do %>
-            <%= f.created_at.strftime("%Y-%m-%d %H:%M:%S") %>
+          <%= link_to admins_order_path(f.id) do %>
+            <%= f.created_at.strftime("%Y/%m/%d %H:%M:%S") %>
           <% end %>
         </td>
         <td><%= f.customer.last_name + f.customer.first_name %></td>
