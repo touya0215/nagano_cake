@@ -44,22 +44,22 @@ class Public::RegistrationsController < Devise::RegistrationsController
    def configure_sign_up_params
      devise_parameter_sanitizer.permit(:sign_up, keys: [:last_name, :first_name, :last_name_kama, :first_name_kana, :postal_code, :address, :telephone_number])
    end
-  
-  
+
+
 
   # If you have extra params to permit, append them to the sanitizer.
   # def configure_account_update_params
   #   devise_parameter_sanitizer.permit(:account_update, keys: [:attribute])
   # end
-  
-  
+
+
 
   # The path used after sign up.
   def after_sign_up_path_for(resource)#新規登録した後のリダイレクト先を指定
     # super(resource)
-    customers_homes_top_path
+    customer_path(current_customer.id)
   end
-  
+
 
   # The path used after sign up for inactive accounts.
   # def after_inactive_sign_up_path_for(resource)
