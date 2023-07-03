@@ -1,6 +1,6 @@
 <div class="container">
   <h3 style="width: 35%; text-align: center; margin: 30px 15px; background: #EEEEEE">
-    <%= @customers.last_name %><%= @customers.first_name %>さんの会員詳細
+    <%= @customers.last_name %><%= @customers.first_name %>さんの会員情報編集
   </h3>
   <div class="row">
     <table>
@@ -31,9 +31,9 @@
           <div style="margin-top: 15px;"><%= f.text_field :telephone_number %></div>
           <div style="margin-top: 15px;"><%= f.text_field :email %></div>
           <div style="margin-top: 18px;">
-            <%= f.radio_button :is_active, false, :checked => "checked" %>
+            <%= f.radio_button :is_deleted, false %>
             <label>有効</label>
-            <%= f.radio_button :is_active, true %>
+            <%= f.radio_button :is_deleted, true %>
             <label>退会</label>
           </div>
           <div class="form-group">

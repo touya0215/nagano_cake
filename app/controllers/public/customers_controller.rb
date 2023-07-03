@@ -18,6 +18,7 @@ class Public::CustomersController < ApplicationController
   end
 
   def unsubscribe
+    # 記入無し
   end
 
   def update
@@ -30,6 +31,13 @@ class Public::CustomersController < ApplicationController
     @customers = Customer.find(params[:id])
     @customers.destroy!
     redirect_to customers_homes_top_path
+  end
+
+  def out
+    @customer = current_customer
+    @customer.update(is_deleted: true)
+    reset_session
+    redirect_to root_path
   end
 
   private

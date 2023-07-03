@@ -54,9 +54,7 @@
               <%= link_to "ジャンル一覧", admins_genres_path, class: 'margin: 20px; nav_link text_light' %>
             </li>
             <li>
-              <%= link_to destroy_admin_session_path, method: :delete, class: 'nav-link text-light' do %>
-                 ログアウト
-              <% end %>
+              <%= link_to "ログアウト", destroy_admin_session_path, method: :delete, class: 'nav-link text-light' %>
             </li>
             <% else %>
             <li>

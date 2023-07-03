@@ -18,7 +18,7 @@ class Admins::CustomersController < ApplicationController
     @customers = Customer.find(params[:id])
     if @customers.update(customer_params)
       flash[:notice] = "You have updated item successfully."
-      redirect_to customers_customers_show_path(params[:id])
+      redirect_to admins_customer_path(params[:id])
     else
       render :show
     end
@@ -29,7 +29,7 @@ class Admins::CustomersController < ApplicationController
 
 
   def customer_params
-    params.require(:customer).permit(:last_name, :first_name, :last_name_kama, :first_name_kana, :postal_code, :address, :telephone_number)
+    params.require(:customer).permit(:last_name, :first_name, :last_name_kama, :first_name_kana, :postal_code, :address, :telephone_number, :is_deleted, :email)
   end
 
 

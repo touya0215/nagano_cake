@@ -37,7 +37,11 @@ Rails.application.routes.draw do
   #   get 'customers/edit/:id', to: 'public/customers#edit', as: :customers_customers_edit
   #   patch 'customers/edit/:id', to: 'public/customers#update'
      get '/unsubscribe', to: 'customers#unsubscribe', as: :customer_unsubscribe
-    resources :customers
+    resources :customers do
+      collection do
+        patch 'out'
+      end
+    end
   # #end
   # #namespace :public do
   #   get 'addersses/index', to: 'public/addersses#index', as: :customers_addersses_index
