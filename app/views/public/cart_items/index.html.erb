@@ -3,9 +3,11 @@
         <div class="col-md-8">
             <h3 style="width: 30%; text-align: center; margin: 20px 30px; background: #EEEEEE">ショッピングカート</h3>
         </div>
-        <dev class="col-md-2" style="margin: 20px 30px;">
-            <%= link_to "　カートを空にする　", cart_items_path, method: :delete, class:"btn btn-danger"  %>
-        </dev>
+        <% if @cart_items.present? %>
+            <div class="col-md-2" style="margin: 20px 30px;">
+                <%= link_to "　カートを空にする　", cart_items_path, method: :delete, class:"btn btn-danger"  %>
+            </div>
+        <% end %>
     </div>
     <div class="row" style="width: 100%; margin: 0px 10px;">
         <table border="1" style="width: 70%; margin: auto;">
@@ -49,6 +51,7 @@
         </table>
     </div>
 </dev>
+<% if @cart_items.present? %>
 <div class="row">
     <table>
     <div class="text-center, col-md-2" style="margin: auto;">
@@ -56,3 +59,4 @@
     </div>
 </table>
 </div>
+<% end %>
