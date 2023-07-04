@@ -1,5 +1,6 @@
 <div class="container">
   <h3 style="width: 25%; text-align: center; margin: 40px 60px; background: #EEEEEE">配送先登録/一覧</h3>
+  <%= form_with model: @addresses,url: addresses_path,method: :post do |f| %>
   <div class="row">
     <table>
       <div class="col-md-3">
@@ -8,22 +9,21 @@
         <div style="margin: 20px;">宛名</div>
       </div>
       <div class="col-md-8">
-        <%= form_with model: @addresses,url: addresses_path,method: :post do |f| %>
-          <div style="margin: 20px;">
-            <%= f.text_field :postal_code %>
-          </div>
-          <div style="margin: 20px;">
-            <%= f.text_field :address, size: 46 %>
-          </div>
-          <div style="margin: 20px;">
-            <%= f.text_field :name %>
-            <label>　　　　　　　　　　　　</label>
-            <a style="padding:10px 20px;"><%= f.submit '新規登録', class:"btn btn-sm btn-success", style:"padding:1px 20px;" %></a>
-          </div>
-        <% end %>
+        <div style="margin: 20px;">
+          <%= f.text_field :postal_code %>
+        </div>
+        <div style="margin: 20px;">
+          <%= f.text_field :address, size: 46 %>
+        </div>
+        <div style="margin: 20px;">
+          <%= f.text_field :name %>
+          <label>　　　　　　　　　　　　</label>
+          <a style="padding:10px 20px;"><%= f.submit '新規登録', class:"btn btn-sm btn-success", style:"padding:1px 20px;" %></a>
+        </div>
       </div>
     </table>
   </div>
+  <% end %>
   <dev class="row">
     <table border="1">
       <div>
